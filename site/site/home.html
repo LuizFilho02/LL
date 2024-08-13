@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body
+        {
+            margin: 0;
+            background-color: #303030;
+        }
+        .navbar
+        {
+            position: fixed;
+            width: 100%;
+            background-color: white;
+        }
+        .navbar-logo
+        {
+            display:inline-block;
+            background-color: rgb(155, 173, 173);;
+            padding: 10px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .navbar-button
+        {
+            float: right;
+            display: inline;
+            background-color:rgb(155, 173, 173);;
+            padding: 10px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .container{
+            display: inline-block;
+            background-color: rgb(176, 176, 239);
+            height: 300px;
+            width: 400px;
+            margin: 10px;
+            box-shadow: 10px 10px 10px;
+            border-radius: 10px;
+        }
+
+        .container:hover{
+            transform: scale(1.2);
+            transition: .2;
+        }
+        .container-master{
+            display: block;
+            margin: 0 auto;
+            width: 80%;
+            text-align: center;
+            
+        }
+
+        span {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .search-bar{
+            text-align: center;
+            display: inline-block;
+            margin-left: 400px;
+        }
+        
+        h1{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: white;
+            text-shadow: 4px 4px 4px black; 
+            padding: 10px;
+            margin: 0;
+        }
+
+        .direita{
+            float: right;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-logo">Acervo Segurança Do Trabalho</div>
+
+        <div class="search-bar">
+            <input id="search" type="search" placeholder="&#x1F50D; Digite Aqui" />
+            <button onclick="barraon()">PROCURAR</button>
+        </div>
+
+        <div class="navbar-button">Bem-Vindo!</div>
+
+    </nav>
+
+        <div style="height:300px;"></div>
+
+        <div class="container-master">
+    
+    <div style="background-image: url(imagem2.jpg); background-size: cover;" title="Função da Segurança do Trabalho" id="2" type="button" onclick="location.href='artigo2.html';" class="container">
+        <h1>Função da Segurança do Trabalho</h1>
+    </div>
+
+    <div style="background-image: url(imagem3.jpg); background-size: cover;"  title="Responsabilidades em Segurança do Trabalho" id="3"  type="button" onclick="location.href='artigo3.html';" class="container">
+        <h1>Responsabilidades em Segurança do Trabalho</h1>
+    </div>
+
+    <div style="background-image: url(segurança.jpg); background-size: cover;"  title="Equipamentos Segurança do Trabalho" id="4" type="button" onclick="location.href='artigo4.html';" class="container">
+        <h1>Equipamentos Segurança do Trabalho</h1>
+    </div>
+        </div>
+    <script>
+        const barra = document.getElementById("search");
+        const images = [];
+        images.push(document.getElementById("2"));
+        images.push(document.getElementById("3"));
+        images.push(document.getElementById("4"));
+      
+        function procurar(pesquisa)
+        {
+            if(pesquisa == null || "")
+            window.location.reload();
+
+            images.forEach(element => 
+            {
+                console.log(element.getAttribute("title"));
+                if(element.getAttribute("title").toLowerCase().includes(pesquisa.toLowerCase()))
+                {
+                    console.log(element.getAttribute("title"));
+                    images.forEach(teste => 
+                    {
+                        teste.style.display = "none"
+                    });
+
+                    element.style.display = "block"
+                }
+
+            });
+        }
+
+        function barraon(){
+            procurar(barra.value);
+        }
+    </script>
+ 
+   
+    
+</body>
+</html>
